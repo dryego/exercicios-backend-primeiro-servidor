@@ -1,12 +1,17 @@
 const express = require("express");
-const jogadores = require("./jogadores");
+
 const app = express();
 
-app.get('/', (requisicao, resposta) => {
-    resposta.send(`Rodada inicializada.`);
-});
-app.get('/jogadas', (requisicao, resposta) => {
-    resposta.send(`É a vez de ${jogadores} jogar!`);
+const jogadores = ["José", "Maria", "João", "Marcos", "Fernanda"];
+
+let contador = 0;
+app.get('/', (req, res) => {
+    let = nomeJogador = jogadores[contador];
+    contador++
+    if (contador >= jogadores.length) {
+        contador = 0;
+    }
+    res.send(`É a vez de ${nomeJogador} jogar!`)
 });
 
 
